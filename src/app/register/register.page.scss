@@ -1,0 +1,67 @@
+/* src/app/register/register.page.scss */
+
+ion-content {
+    --background: #4B10ED; 
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 60px;
+    text-align: center;
+    color: #FFE414;
+    margin-top: 44px;
+}
+
+h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    color: white;
+    text-align: left;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+ion-item {
+    --background: #FFFFFF;
+    --color: #000000;
+    border-radius: 30px; 
+    margin-bottom: 15px;
+    --min-height: 50px;
+    --max-height: 50px;
+}
+
+ion-input {
+    font-size: 16px;
+    line-height: 1.2;
+    border-radius: 30px; 
+}
+
+ion-button {
+    width: 196px;
+    height: 55px;
+    --background: #FFE414;
+    --color: black;
+    border-radius: 30px; 
+    margin-top: 20px;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: white;
+}
+
+.login-link a {
+    color: #FFE414;
+    text-decoration: none;
+}

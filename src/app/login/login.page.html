@@ -1,0 +1,73 @@
+<ion-content class="login-page" fullscreen>
+  <div class="container">
+    
+    <div class="logo-inclus"></div>
+
+    <h2 class="login-title">Login</h2>
+
+    <div class="toggle-buttons">
+      <button
+        type="button"
+        [class.selected]="userType === 'aluno'"
+        (click)="setUserType('aluno')"
+      >
+        Sou Aluno/Pai
+      </button>
+      <button
+        type="button"
+        [class.selected]="userType === 'professor'"
+        (click)="setUserType('professor')"
+      >
+        Sou Professor
+      </button>
+    </div>
+
+    <form (ngSubmit)="login()" class="login-form" novalidate>
+      <ion-input
+        placeholder="CPF"
+        type="text"
+        [(ngModel)]="cpf"
+        name="cpf"
+        autocomplete="off"
+        maxlength="11"
+        pattern="[0-9]*"
+        required
+        (ionInput)="onCPFInput($event)"
+      ></ion-input>
+
+      <ion-item class="password-item" lines="none">
+        <ion-input
+          placeholder="Senha"
+          [type]="showPassword ? 'text' : 'password'"
+          [(ngModel)]="password"
+          name="password"
+          required
+        ></ion-input>
+
+        <ion-icon
+          aria-label="Mostrar/Esconder senha"
+          [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"
+          slot="end"
+          (click)="togglePasswordVisibility()"
+        ></ion-icon>
+      </ion-item>
+
+      <ion-button
+        type="submit"
+        class="btn-access"
+        expand="block"
+        fill="clear"
+      >
+        ACESSAR
+      </ion-button>
+    </form>
+
+    <a (click)="forgotPassword()" class="forgot-password"
+      >Esqueci a senha</a
+    >
+
+    <p class="register-info">
+      Solicite o cadastro na escola <a (click)="openCadastro()">AQUI</a>
+    </p>
+  </div>
+</ion-content>

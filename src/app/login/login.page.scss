@@ -1,0 +1,255 @@
+/* VARIÁVEIS DE COR (Baseadas no Protótipo) */
+$green: #79b890; // Verde da logo, toggle selecionado e ícone de senha
+$dark-text: #4f4f4f; // Cor do título "Login" e texto dos inputs
+$background: #f8f7f4; // Fundo da página (branco-gelo)
+$button-access-bg: #f0e8d0; // Fundo do botão "Acessar"
+$toggle-unselected-bg: #e0dde3; // Fundo do toggle não selecionado
+$toggle-unselected-text: #6d6d6d; // Texto do toggle não selecionado
+$input-border: #d0d0d0; // Borda dos inputs (mais fina e clara)
+$forgot-link: #9db5a5; // Cor do "Esqueci a senha"
+
+ion-content.login-page {
+  --background: #{$background} !important;
+  background-color: $background !important;
+}
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 24px;
+  font-family: 'Poppins', sans-serif;
+  color: $dark-text;
+  text-align: center;
+
+  .container {
+    width: 100%;
+    max-width: 310px; /* Container mais estreito */
+    padding: 0 16px;
+
+    /* LOGO MAIOR E MAIS VISÍVEL */
+    .logo-inclus {
+      display: block;
+      background-image: url('../../assets/icon/LOGO.png'); 
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      
+      width: 200px; /* Logo proporcional */
+      height: 70px;
+      
+      margin: 20px auto 30px auto;
+      
+      span, ion-icon {
+        display: none; 
+      }
+    }
+    
+    .login-title {
+      font-weight: 500; /* Menos bold */
+      font-size: 20px; /* Menor */
+      margin-bottom: 24px;
+      color: #5a5a5a; /* Cor mais escura */
+      letter-spacing: 0.2px;
+    }
+
+    .toggle-buttons {
+      display: flex;
+      border-radius: 20px; /* Arredondamento médio */
+      overflow: hidden;
+      margin-bottom: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08); /* Sombra sutil */
+      
+      button {
+        flex: 1;
+        padding: 8px 0; /* Mais fino */
+        font-weight: 500;
+        font-size: 13px; /* Menor */
+        color: $toggle-unselected-text;
+        background-color: $toggle-unselected-bg;
+        border: none;
+        cursor: pointer;
+        user-select: none;
+        transition: all 0.3s ease;
+        
+        &.selected {
+          background-color: $green;
+          color: white;
+          box-shadow: 0 1px 4px rgba($green, 0.3);
+          border-radius: 20px;
+        }
+        
+        &:first-child:not(.selected) {
+          border-top-left-radius: 20px;
+          border-bottom-left-radius: 20px;
+        }
+        
+        &:last-child:not(.selected) {
+          border-top-right-radius: 20px;
+          border-bottom-right-radius: 20px;
+        }
+        
+        &:focus-visible {
+          outline: 2px solid $green;
+          outline-offset: 2px;
+        }
+      }
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px; /* Menor gap */
+
+      /* INPUTS MAIS COMPACTOS */
+      ion-input[name='cpf'],
+      .password-item {
+        --background: #ffffff;
+        --border-width: 0px !important;
+        --border-color: transparent !important;
+        --highlight-color-focused: transparent !important;
+        --ripple-color: transparent !important;
+
+        border: 0.8px solid #c8c8c8 !important; /* Borda bem fina */
+        border-radius: 6px; /* Menos arredondado */
+        font-size: 13px; /* Fonte menor */
+        font-weight: 400;
+        color: $dark-text;
+        --padding-start: 12px;
+        --padding-end: 12px;
+        --padding-top: 10px; /* Mais compacto */
+        --padding-bottom: 10px;
+        min-height: 40px; /* Altura reduzida */
+        height: 40px;
+
+        &.ion-focused,
+        &:focus-within {
+          border-color: $green !important;
+          box-shadow: 0 0 0 3px rgba($green, 0.1) !important;
+        }
+        
+        /* Placeholder style */
+        ::placeholder {
+          color: #a8a8a8; /* Cor mais clara */
+          opacity: 0.8;
+          font-size: 13px;
+        }
+      }
+
+      /* ITEM DE SENHA COM CENTRALIZAÇÃO */
+      .password-item {
+        --padding-start: 0px;
+        --padding-end: 0px;
+        --inner-padding-end: 0px;
+        display: flex;
+        align-items: center;
+        
+        ion-input {
+          --background: transparent;
+          border: none !important;
+          box-shadow: none !important;
+          --padding-start: 12px;
+          --padding-end: 36px; /* Espaço para o ícone */
+          --padding-top: 10px;
+          --padding-bottom: 10px;
+          flex: 1;
+        }
+        
+        ion-icon {
+          color: $green;
+          font-size: 18px; /* Ícone menor */
+          padding-right: 12px;
+          cursor: pointer;
+          transition: opacity 0.2s;
+          
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+
+      /* BOTÃO ACESSAR COMPACTO */
+      .btn-access {
+        margin-top: 16px;
+        
+        --background: #{$button-access-bg} !important;
+        --color: #{$dark-text} !important;
+        --background-activated: #{darken($button-access-bg, 8%)} !important; 
+        --background-hover: #{$button-access-bg} !important; 
+        --box-shadow: none !important;
+        
+        height: 42px; /* Altura reduzida */
+        font-weight: 600;
+        border-radius: 6px; /* Menos arredondado */
+        font-size: 14px; /* Fonte menor */
+        letter-spacing: 0.8px; /* Mais espaçamento nas letras */
+        text-transform: uppercase; /* ACESSAR em maiúsculas */
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+        border: none !important;
+        
+        transition: all 0.3s ease;
+
+        &:hover {
+          --background: #{$green} !important;
+          --color: white !important;
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba($green, 0.2) !important;
+        }
+      }
+    }
+
+    /* Links do Rodapé */
+    .forgot-password {
+      display: block;
+      margin: 16px 0 32px; /* Espaçamentos reduzidos */
+      font-size: 12px; /* Menor */
+      color: $forgot-link;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 400; /* Menos bold */
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    
+    .register-info {
+      font-size: 12px; /* Menor */
+      color: #999; /* Mais claro */
+      font-weight: 400;
+      line-height: 1.6;
+      
+      a {
+        color: $green;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+/* Ajustes específicos para Ionic */
+ion-item.password-item {
+  --background: transparent;
+  --border-style: none;
+  --inner-border-width: 0;
+  --min-height: 40px; /* Altura reduzida */
+  --padding-start: 0;
+  --inner-padding-end: 0;
+}
+
+/* Remove espaçamento extra do ion-input */
+ion-input {
+  --placeholder-opacity: 0.7;
+  
+  input {
+    padding: 0 !important;
+  }
+}

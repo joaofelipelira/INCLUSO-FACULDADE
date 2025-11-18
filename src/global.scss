@@ -1,0 +1,120 @@
+/* Paleta principal */
+$green: #73ad7d;
+$black-text: #4a4a4a; // Cinza escuro para textos
+$background-white: #f5f6ee; // Fundo branco sujo
+$button-bg: #f0e8d0; // Bege claro botão acessar
+$gray-unselected: #c3c3cb; // Cinza toggle não selecionado
+$link-green: $green; // Verde para links e selecionados
+
+/* Aplica fundo branco para todo o app */
+ion-app, ion-content, body, html {
+  background-color: $background-white !important;
+  color: $black-text !important;
+  font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+}
+
+/* Remove qualquer cor de fundo roxa ou diferente nas páginas */
+ion-content {
+  --background: $background-white !important;
+  background-color: $background-white !important;
+}
+
+/* Botões primários (Acessar) */
+ion-button {
+  &.btn-access {
+    background-color: $button-bg !important;
+    color: $black-text !important;
+    font-weight: 600;
+    border-radius: 30px;
+    padding: 14px 0;
+    font-size: 18px;
+    box-shadow: none;
+    --ion-background-activated: lighten($button-bg, 10%) !important;
+    transition: background-color 0.3s ease;
+
+    &:hover,
+    &:focus {
+      background-color: darken($button-bg, 5%) !important;
+    }
+  }
+}
+
+/* Toggle botão customizado */
+.toggle-buttons {
+  display: flex;
+  border-radius: 25px;
+  border: 1.5px solid $gray-unselected;
+  overflow: hidden;
+  margin-bottom: 32px;
+
+  button {
+    flex: 1;
+    background-color: $gray-unselected;
+    color: darken($gray-unselected, 45%);
+    border: none;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease;
+    user-select: none;
+    outline: none;
+
+    &.selected {
+      background-color: $green;
+      color: white;
+      box-shadow: 0 0 8px rgba($green, 0.4);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $green;
+      outline-offset: 2px;
+    }
+  }
+}
+
+/* Inputs Ion */
+ion-input {
+  --background: transparent;
+  border: 1.5px solid $gray-unselected;
+  border-radius: 10px;
+  font-size: 16px;
+  color: $black-text;
+  padding: 12px 15px;
+
+  &.ion-focused,
+  &:focus-within {
+    border-color: $green !important;
+    box-shadow: 0 0 7px rgba($green, 0.4) !important;
+  }
+}
+
+/* Links */
+a {
+  color: $link-green;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+/* Textos e títulos */
+h2, h1, .login-title {
+  font-weight: 700;
+  color: $black-text;
+}
+
+/* Adaptar ainda mais o container da tela login */
+.login-page, .container {
+  background-color: transparent !important;
+}
+
+/* Geral para garantir sem fundo roxo */
+ion-page, ion-content, ion-app {
+  background-color: $background-white !important;
+}
