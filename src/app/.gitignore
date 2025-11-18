@@ -1,0 +1,6 @@
+node_modules/
+www/
+.ionic/
+.angular/
+.sourcemaps/
+package-lock.json
